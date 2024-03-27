@@ -31,7 +31,7 @@ def cache_result(method: Callable) -> Callable:
             return cached_result.decode('utf-8')
         else:
             result = method(url)  # Call the original method
-            redis_store.setex(key, 10, result)  # Cache the result with expiration time of 10 seconds
+            redis_store.setex(key, 10, result)
             return result
     return wrapper
 
